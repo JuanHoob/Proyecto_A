@@ -4,16 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El Tiempo</title>
-    <script type="module" src="/JS/tiempo.js"></script>
     <link rel="stylesheet" href="/CSS/style.css" />
   </head>
-  <body>
+  <body background="cielo2.jpg">
+  <section class="titulo">
+  <h1 class="degradado">¿QUÉ TIEMPO HACE HOY?</h1>
+  </section>
+     <section class="container">
+      <button class="centered-button">¿Donde?</button>
+    </section>
     <header><nav></nav></header>
     <!--posible nav con información tanto de la empresa como de los creadores de la app?-->
-
-    <img src="/img/cielo.jpg" alt="la imagen de un cielo" />
-    <button>Dónde estás?</button>
-    <section>
+    
       <article>
         <!--tarjeta del tiempo con lista para las horas-->
         <header><h2 id="city"></h2></header>
@@ -40,5 +42,7 @@
     </section>
     <footer></footer>
     <!--logo? acerca de...etc-->
+    <script type="module" src="/JS/tiempo.js"></script>
   </body>
-</html>
+  </html>
+  
