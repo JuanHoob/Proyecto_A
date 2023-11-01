@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Tiempo</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+  </head>
+  <body background="/img/cielo2.jpg"> <!--he puesto la imagen dentro de la carpeta-->
+  <section class="titulo">
+  <h1 class="degradado">¿QUÉ TIEMPO HACE HOY?</h1>
+  </section>
+     <section class="container">
+      <button id= "obtenerUbicacion" class="centered-button">¿Donde?</button>
+    </section>
+
+   <div id="resultadoBoton"></div>
+ 
+
+    <!-- Aquí se mostrará la información -->
+    <header><nav></nav></header>
+    <!--posible nav con información tanto de la empresa como de los creadores de la app?-->
+    
+      <article>
+        <!--tarjeta del tiempo con lista para las horas-->
+        <header><h2 id="city"></h2></header>
+        <!--he puesto id para manejar los datos con el JS y darle estilo con el css-->
+        <main>
+          <section>
+            <ul class="hours">
+              <!--le he dado una clase para poder manejar un flex o un gridy organizar los datos-->
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </section>
+          <!--he dividido en otra sección el párrafo que será una posible variable true false-->
+          <section><p>"llueve o no llueve"</p></section>
+
+          <!--aqui se muestra la respuesta de si llovera o no, agregué id-->
+          <p id="mensajeLluvia"></p>
+        </main>
+        <footer></footer>
+        <!--logo?-->
+      </article>
+    </section>
+    <footer></footer>
+    <!--logo? acerca de...etc-->
+    <script type="module" src="/JS/tiempo.js"></script>
+  </body>
+  </html>
+  
