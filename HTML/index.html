@@ -6,13 +6,18 @@
     <title>El Tiempo</title>
     <link rel="stylesheet" href="/CSS/style.css" />
   </head>
-  <body background="cielo2.jpg">
+  <body background="/img/cielo2.jpg"> <!--he puesto la imagen dentro de la carpeta-->
   <section class="titulo">
   <h1 class="degradado">¿QUÉ TIEMPO HACE HOY?</h1>
   </section>
      <section class="container">
-      <button class="centered-button">¿Donde?</button>
+      <button id= "obtenerUbicacion" class="centered-button">¿Donde?</button>
     </section>
+
+   <div id="resultadoBoton"></div>
+ 
+
+    <!-- Aquí se mostrará la información -->
     <header><nav></nav></header>
     <!--posible nav con información tanto de la empresa como de los creadores de la app?-->
     
@@ -35,6 +40,9 @@
           </section>
           <!--he dividido en otra sección el párrafo que será una posible variable true false-->
           <section><p>"llueve o no llueve"</p></section>
+
+          <!--aqui se muestra la respuesta de si llovera o no, agregué id-->
+          <p id="mensajeLluvia"></p>
         </main>
         <footer></footer>
         <!--logo?-->
