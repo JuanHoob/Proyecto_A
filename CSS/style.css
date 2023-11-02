@@ -5,7 +5,13 @@
 
 @font-face {
     font-family: MiFuentePersonalizada2;
-    src: url(/fuentes/static/PlaypenSans-SemiBold.ttf);
+    src: url(/fuentes/static/PlaypenSans-Light.ttf);
+}
+
+body{
+    background: url(/img/cielo2.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat; 
 }
 
 .titulo {
@@ -35,34 +41,27 @@ h1 {
     align-items: center;
     height: 80px;
     margin-top: 80px;
+    
+    }
 
-}
-
-.centered-button {
-
-    border-radius: 50%;
-    background-color: rgb(226, 208, 43);
-    border: black;
-    cursor: pointer;
-    transition: background-color 0.3 ease;
+    .centered-button{
+    
+        border-radius: 50%;
+        background-color: rgb(226, 208, 43);
+        border: black;
+        cursor: pointer;
+        transition: background-color 0.3 ease;
         
-}
-
-.centered-button:hover {
-    background-color: rgb(231, 215, 75);
-}
-
-button {
-    height: 135px;
-    width: 135px;
-    color: white;
-    font-size: 30px;
-    font-family: 'MiFuentePersonalizada2', sans-serif;
-    background-color: transparent;
-}
-
-ul li {
-    flex: auto;
-    list-style-type: none;
-
+    }
+    .centered-button:hover{
+        background-color: rgb(231, 215, 75);
+    }
+    
+    button{
+        height: 135px;
+        width: 135px; 
+        color: white;
+        font-size: 30px;
+        font-family: 'MiFuentePersonalizada2', sans-serif;
+        background-color: transparent; 
 }
