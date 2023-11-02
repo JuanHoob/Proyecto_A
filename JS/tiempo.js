@@ -2,6 +2,14 @@
 const CLAVE_API = "113ab78dfa3e32fdc67b5a19d67c0d9f";
 const botonObtenerUbicacion = document.getElementById("obtenerUbicacion");
 const infoUbicacion = document.getElementById("resultadoBoton");
+let primera;
+let segunda;
+let tercera;
+let cuarta;
+let quinta;
+let sexta;
+let septima;
+let octaba;
 
 function inicializar() {
   botonObtenerUbicacion.addEventListener("click", obtenerUbicacionYTemperatura);

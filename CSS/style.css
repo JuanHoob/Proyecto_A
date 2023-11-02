@@ -1,16 +1,18 @@
-@font-face{
-font-family: 'MiFuentePersonalizada';
-src: url(/fuentes/static/PlaypenSans-SemiBold.ttf);
-} 
+@font-face {
+    font-family: 'MiFuentePersonalizada';
+    src: url(/fuentes/static/PlaypenSans-SemiBold.ttf);
+}
 
-@font-face{
+@font-face {
     font-family: MiFuentePersonalizada2;
     src: url(/fuentes/static/PlaypenSans-SemiBold.ttf);
 }
-.titulo{
+
+.titulo {
     text-align: center;
     margin-top: 80px;
 }
+
 h1 {
     font-family: 'MiFuentePersonalizada', sans-serif;
     text-align: center;
@@ -18,40 +20,48 @@ h1 {
 }
 
 
- .degradado {
- background: blue;
+.degradado {
+    background: blue;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     display: inline-block;
     animation: dance 2s linear infinite;
 }
-.container{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    height: 80px; 
-    margin-top: 80px;
-    
-    }
 
-    .centered-button{
-    
-        border-radius: 50%;
-        background-color: rgb(226, 208, 43);
-        border: black;
-        cursor: pointer;
-        transition: background-color 0.3 ease;
-    }
-    .centered-button:hover{
-        background-color: rgb(231, 215, 75);
-    }
-    
-    button{
-        height: 130px;
-        width: 130px; 
-        color: white;
-        font-size: 30px;
-        font-family: 'MiFuentePersonalizada2', sans-serif;
-        background-color: transparent; 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-top: 80px;
+
+}
+
+.centered-button {
+
+    border-radius: 50%;
+    background-color: rgb(226, 208, 43);
+    border: black;
+    cursor: pointer;
+    transition: background-color 0.3 ease;
+}
+
+.centered-button:hover {
+    background-color: rgb(231, 215, 75);
+}
+
+button {
+    height: 130px;
+    width: 130px;
+    color: white;
+    font-size: 30px;
+    font-family: 'MiFuentePersonalizada2', sans-serif;
+    background-color: transparent;
+}
+
+ul li {
+    flex: auto;
+    list-style-type: none;
+
 }
