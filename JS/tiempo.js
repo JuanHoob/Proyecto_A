@@ -2,14 +2,7 @@
 const CLAVE_API = "113ab78dfa3e32fdc67b5a19d67c0d9f";
 const botonObtenerUbicacion = document.getElementById("obtenerUbicacion");
 const infoUbicacion = document.getElementById("resultadoBoton");
-let primera;
-let segunda;
-let tercera;
-let cuarta;
-let quinta;
-let sexta;
-let septima;
-let octaba;
+const mensajeLluvia = document.getElementById("mensajeLluvia");
 
 function inicializar() {
   botonObtenerUbicacion.addEventListener("click", obtenerUbicacionYTemperatura);
@@ -32,9 +25,8 @@ function obtenerUbicacionYTemperatura() {
           const temperatura = (datos.main.temp - 273.15).toFixed(2); // Convertir a grados Celsius
 
           // Muestra la ubicación y temperatura actual
-          let textoInfo = `Estás en ${ciudad}, la temperatura actual es ${temperatura}°C.`;
+          let textoInfo = `Estás en ${ciudad}, actual es ${temperatura}°C.`;
 
-          // Agrega la fecha actual
           const fechaActual = new Date();
           const fechaFormateada = fechaActual.toLocaleDateString("es-ES", {
             weekday: "long",
@@ -42,20 +34,17 @@ function obtenerUbicacionYTemperatura() {
             month: "long",
             day: "numeric",
           });
-
           textoInfo += ` ${fechaFormateada}`;
 
-          const pronosticoLluvia = true;
+          const pronosticoLluvia = datos.weather[0].main === "Rain";
 
           // Para mostrar el mensaje de pronóstico de lluvia
-          const mensajeLluvia = document.getElementById("mensajeLluvia");
           mensajeLluvia.textContent = pronosticoLluvia
             ? "Va a llover en las próximas 8 horas"
             : "No se esperan lluvias.";
 
           infoUbicacion.textContent = textoInfo;
         })
-
         .catch((error) => {
           infoUbicacion.textContent = `Error al obtener la ubicación o la temperatura: ${error.message}`;
         });
