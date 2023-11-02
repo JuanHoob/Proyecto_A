@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'MiFuentePersonalizada';
-    src: url(/fuentes/static/PlaypenSans-SemiBold.ttf);
+    src: url(../fuentes/static/PlaypenSans-SemiBold.ttf);
 }
 
 @font-face {
@@ -8,16 +8,16 @@
     src: url(/fuentes/static/PlaypenSans-Light.ttf);
 }
 
-body{
+body {
     background: url(/img/dia.jpg);
-    background-size: cover; 
-    background-repeat: no-repeat; 
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-body{
+body {
     background: url(/img/noche.jpg);
-    background-size: cover; 
-    background-repeat: no-repeat; 
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .titulo {
@@ -47,34 +47,37 @@ h1 {
     align-items: center;
     height: 50px;
     margin-top: 50px;
-    }
-
-    .centered-button{
-    
-        border-radius: 50%;
-        background-color: rgb(226, 208, 43);
-        border: black;
-        cursor: pointer;
-        transition: background-color 0.3 ease;
-        
-    }
-    .centered-button:hover{
-        background-color: rgb(231, 215, 75);
-    }
-    
-    button{
-        height: 135px;
-        width: 135px; 
-        color: white;
-        font-size: 30px;
-        font-family: 'MiFuentePersonalizada2', sans-serif;
-        background-color: transparent; 
 }
+
+.centered-button {
+
+    border-radius: 50%;
+    background-color: rgb(226, 208, 43);
+    border: black;
+    cursor: pointer;
+    transition: background-color 0.3 ease;
+
+}
+
+.centered-button:hover {
+    background-color: rgb(231, 215, 75);
+}
+
+button {
+    height: 135px;
+    width: 135px;
+    color: white;
+    font-size: 30px;
+    font-family: 'MiFuentePersonalizada2', sans-serif;
+    background-color: transparent;
+}
+
 #resultadoBoton {
     text-align: center;
     margin-top: 10%;
-font-family: 'MiFuentePersonalizada', sans-serif;
+    font-family: 'MiFuentePersonalizada', sans-serif;
 }
+
 /* #resultadoBoton.noche {
 text-align: center;
 margin-top: 10%;
@@ -89,15 +92,15 @@ ul li {
     font-family: 'MiFuentePersonalizada2', sans-serif;
 }
 
-ul{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-align-content: center;
-justify-content: space-between;
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
 }
 
-script{
- 
- font-family: 'MiFuentePersonalizada', sans-serif;
+script {
+
+    font-family: 'MiFuentePersonalizada', sans-serif;
 }
