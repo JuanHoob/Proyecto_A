@@ -9,14 +9,20 @@
 }
 
 body{
-    background: url(/img/cielo2.jpg);
+    background: url(/img/dia.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+body{
+    background: url(/img/noche.jpg);
     background-size: cover; 
     background-repeat: no-repeat; 
 }
 
 .titulo {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 h1 {
@@ -39,9 +45,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
-    margin-top: 80px;
-    
+    height: 50px;
+    margin-top: 50px;
     }
 
     .centered-button{
@@ -64,4 +69,35 @@ h1 {
         font-size: 30px;
         font-family: 'MiFuentePersonalizada2', sans-serif;
         background-color: transparent; 
+}
+#resultadoBoton {
+    text-align: center;
+    margin-top: 10%;
+font-family: 'MiFuentePersonalizada', sans-serif;
+}
+/* #resultadoBoton.noche {
+text-align: center;
+margin-top: 10%;
+font-family: 'MiFuentePersonalizada2', sans-serif;
+color: white;
+} */
+
+ul li {
+    margin-top: 10%;
+    list-style-type: none;
+    display: flex;
+    font-family: 'MiFuentePersonalizada2', sans-serif;
+}
+
+ul{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-content: center;
+justify-content: space-between;
+}
+
+script{
+ 
+ font-family: 'MiFuentePersonalizada', sans-serif;
 }

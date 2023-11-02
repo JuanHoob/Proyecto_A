@@ -1,15 +1,57 @@
 "use strict";
+document.addEventListener('DOMContentLoaded', function() {
+    const imagen = document.getElementById('imagen');
+
+    function actualizarImagen() {
+        const ahora = new Date();
+        const hora = ahora.getHours();
+
+        if (hora >= 7 && hora < 18) {
+            // Si es de día (entre las 7:00 y las 17:59), muestra la imagen del día.
+            imagen.src = "/img/dia.jpg";
+      
+        } else {
+            // En cualquier otro momento, muestra la imagen de la noche.
+            imagen.src = "/img/noche.jpg";
+        }
+    }
+
+
+ actualizarImagen();
+
+    // Actualiza la imagen cada minuto para reflejar el cambio de hora.
+    setInterval(actualizarImagen, 60000); // 60000 milisegundos = 1 minuto
+});
+
+/*document.addEventListener("DOMContentLoaded", function () {
+  const resultadoBoton = document.getElementById("resultadoBoton");
+
+  function actualizarColorFuente() {
+    const ahora = new Date();
+    const hora = ahora.getHours();
+
+    if (hora >= 7 && hora < 18) {
+      // Si es de día (entre las 6:00 y las 17:59), aplica el estilo de "dia" (color azul).
+      resultadoBoton.className = "dia";
+    } else {
+      // En cualquier otro momento, aplica el estilo de "noche" (color blanco).
+      resultadoBoton.className = "noche";
+    }
+  }
+
+  // Actualiza el color de la fuente al cargar la página.
+  actualizarColorFuente();
+
+  // Actualiza el color de la fuente cada minuto para reflejar el cambio de hora.
+  setInterval(actualizarColorFuente, 60000); // 60000 milisegundos = 1 minuto
+});*/
+
+
+
 const CLAVE_API = "113ab78dfa3e32fdc67b5a19d67c0d9f";
 const botonObtenerUbicacion = document.getElementById("obtenerUbicacion");
 const infoUbicacion = document.getElementById("resultadoBoton");
-let primera;
-let segunda;
-let tercera;
-let cuarta;
-let quinta;
-let sexta;
-let septima;
-let octaba;
+
 
 function inicializar() {
   botonObtenerUbicacion.addEventListener("click", obtenerUbicacionYTemperatura);

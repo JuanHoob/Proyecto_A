@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="../CSS/style.css" />
   </head>
   <body>
-  <section class="titulo">
+     <section class="titulo">
   <h1 class="degradado">¿QUÉ TIEMPO HACE HOY?</h1>
   </section>
      <section class="container">
       <button id= "obtenerUbicacion" class="centered-button">¿Donde?</button>
     </section>
 
-   <div id="resultadoBoton"></div>
- 
-
+    
+    
     <!-- Aquí se mostrará la información -->
     <header><nav></nav></header>
     <!--posible nav con información tanto de la empresa como de los creadores de la app?-->
     
-      <article>
+    <article>
+        <div id="resultadoBoton"></div>
         <!--tarjeta del tiempo con lista para las horas-->
         <header><h2 id="city"></h2></header>
         <!--he puesto id para manejar los datos con el JS y darle estilo con el css-->
@@ -40,10 +40,11 @@
             </ul>
           </section>
           <!--he dividido en otra sección el párrafo que será una posible variable true false-->
-          <section><p>"llueve o no llueve"</p></section>
+          <section>
+            <p id="mensajeLluvia"></p>            
+          </section>
 
           <!--aqui se muestra la respuesta de si llovera o no, agregué id-->
-          <p id="mensajeLluvia"></p>
         </main>
         <footer></footer>
         <!--logo?-->
