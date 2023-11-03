@@ -1,108 +1,78 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const imagen = document.getElementById("imagen"); // Obtiene el elemento de imagen por su ID
-  const infoUbicacion = document.getElementById("resultadoBoton"); // Obtiene el elemento de información de ubicación por su ID
-  const mensajeLluvia = document.getElementById("mensajeLluvia"); // Obtiene el elemento de mensaje de lluvia por su ID
+  const imagen = document.getElementById("imagen");
+  const city = document.getElementById("city");
+  const temper = document.getElementById("temper");
+  const hume = document.getElementById("hume");
+  const viento = document.getElementById("viento");
+  const fecha = document.getElementById("fecha");
 
-  // Función para actualizar la imagen según la hora del día
   function actualizarImagen() {
     const ahora = new Date();
     const hora = ahora.getHours();
 
     if (hora >= 7 && hora < 18) {
-      // Si es de día (entre las 7:00 y las 17:59), muestra la imagen del día.
-      imagen.src = "/img/dia.jpg";
+      imagen.src = "../img/dia.jpg";
+      document.body.style.color = "black";
     } else {
-      // En cualquier otro momento, muestra la imagen de la noche.
-      imagen.src = "/img/noche.jpg";
+      imagen.src = "../img/noche.jpg";
+      document.body.style.color = "white";
     }
   }
 
-  actualizarImagen(); // Llama a la función para mostrar la imagen inicial
+  actualizarImagen();
 
-  setInterval(actualizarImagen, 60000); // Actualiza la imagen cada 60 segundos
+  setInterval(actualizarImagen, 60000);
 
-  // Función para actualizar la información de ubicaciónS
   function actualizarInfoUbicacion() {
     obtenerUbicacionYTemperatura();
     setInterval(obtenerUbicacionYTemperatura, 60000);
   }
 
-  actualizarInfoUbicacion(); // Llama a la función para mostrar la información de ubicación inicialS
+  actualizarInfoUbicacion();
 });
 
-const CLAVE_API = "113ab78dfa3e32fdc67b5a19d67c0d9f"; // Clave de la API de OpenWeatherMap
-const botonObtenerUbicacion = document.getElementById("obtenerUbicacion"); // Obtiene el botón por su ID
-const infoUbicacion = document.getElementById("resultadoBoton"); // Obtiene el elemento de información de ubicación por su ID
-const mensajeLluvia = document.getElementById("mensajeLluvia"); // Obtiene el elemento de mensaje de lluvia por su ID
+const CLAVE_API = "113ab78dfa3e32fdc67b5a19d67c0d9f";
+const botonObtenerUbicacion = document.getElementById("obtenerUbicacion");
+const infoUbicacion = document.getElementById("resultadoBoton");
+const mensajeLluvia = document.getElementById("mensajeLluvia");
 
-// Función para inicializar el botón de obtener ubicación
 function inicializar() {
   botonObtenerUbicacion.addEventListener("click", obtenerUbicacionYTemperatura);
 }
 
-document.addEventListener("DOMContentLoaded", inicializar); // Llama a la función de inicialización cuando se carga el documento
+document.addEventListener("DOMContentLoaded", inicializar);
 
-// Función para obtener la ubicación y la temperatura
 function obtenerUbicacionYTemperatura() {
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function (posición) {
-      const latitud = posición.coords.latitude; // Obtiene la latitud de la ubicación
-      const longitud = posición.coords.longitude; // Obtiene la longitud de la ubicación
+      const latitud = posición.coords.latitude;
+      const longitud = posición.coords.longitude;
       const urlOpenWeatherMap = `https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&appid=${CLAVE_API}`;
 
-      // Realiza una solicitud para obtener los datos meteorológicos
       fetch(urlOpenWeatherMap)
-        .then((respuesta) => respuesta.json()) // Convierte la respuesta a formato JSON
+        .then((respuesta) => respuesta.json())
         .then((datos) => {
-          // Separar los datos obtenidos
           const ciudad = datos.name;
-          const temperatura = (datos.main.temp - 273.15).toFixed(0); // Convierte la temperatura a grados Celsius
-          const humedad = datos.main.humidity; // Obtiene la humedad
-          const velocidadViento = datos.wind.speed; // Obtiene la velocidad del viento
+          const temperatura = (datos.main.temp - 273.15).toFixed(0);
+          const humedad = datos.main.humidity;
+          const velocidadViento = datos.wind.speed;
           const fechaActual = new Date();
-          // Modifica la salida de la fecha para que esté en formato deseado (día y mes)
+
           const fechaFormateada = fechaActual.toLocaleDateString("es-ES", {
             month: "long",
             day: "numeric",
           });
+          city.textContent = ciudad;
+          temper.textContent = temperatura;
+          hume.textContent = `Humedad: ${humedad}%`;
+          viento.textContent = `Viento: ${(velocidadViento * 3.6).toFixed(
+            0
+          )} km/h`;
+          fecha.textContent = fechaFormateada;
 
-          // Crea elementos HTML para mostrar la información
-          const mensajeCiudad = document.createElement("div");
-          mensajeCiudad.textContent = ciudad;
-          mensajeCiudad.classList.add("ciudad"); // Agrega una clase para el estilo de la ciudad
-
-          const mensajeFecha = document.createElement("div");
-          mensajeFecha.textContent = fechaFormateada;
-          mensajeFecha.classList.add("fecha"); // Agrega una clase para el estilo de la fecha
-
-          const mensajeTemperatura = document.createElement("div");
-          mensajeTemperatura.textContent = `${temperatura}°C`;
-          mensajeTemperatura.classList.add("temperatura"); // Agrega una clase para el estilo de la temperatura
-
-          // Agrega la humedad
-          const mensajeHumedad = document.createElement("div");
-          mensajeHumedad.textContent = `Humedad: ${humedad}%`;
-          mensajeHumedad.classList.add("humedad"); // Agrega una clase para el estilo de la humedad
-
-          // Agrega la velocidad del viento en formato km/h
-          const mensajeViento = document.createElement("div");
-          mensajeViento.textContent = `Viento: ${(
-            velocidadViento * 3.6
-          ).toFixed(0)} km/h`;
-          mensajeViento.classList.add("viento"); // Agrega una clase para el estilo de la velocidad del viento
-
-          // Actualiza la información de ubicación
-          infoUbicacion.innerHTML = ""; // Limpia el contenido existente
-          infoUbicacion.appendChild(mensajeCiudad);
-          infoUbicacion.appendChild(mensajeFecha);
-          infoUbicacion.appendChild(mensajeTemperatura);
-          infoUbicacion.appendChild(mensajeHumedad);
-          infoUbicacion.appendChild(mensajeViento);
-
-          // Llama a la función para obtener el pronóstico de lluvia
-          obtenerPronosticoLluvia(latitud, longitud);
+          obtenerPronósticoLluvia(latitud, longitud);
         })
         .catch((error) => {
           infoUbicacion.textContent = `Error al obtener la ubicación o la temperatura: ${error.message}`;
@@ -114,25 +84,21 @@ function obtenerUbicacionYTemperatura() {
   }
 }
 
-// Función para obtener el pronóstico de lluvia
-function obtenerPronosticoLluvia(latitud, longitud) {
+function obtenerPronósticoLluvia(latitud, longitud) {
   const apiKey = "113ab78dfa3e32fdc67b5a19d67c0d9f"; // Clave de la API de OpenWeatherMap
   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitud}&lon=${longitud}&appid=${apiKey}&units=metric`;
 
-  // Realiza una solicitud para obtener el pronóstico de lluvia
   fetch(url)
-    .then((response) => response.json()) // Convierte la respuesta a formato JSON
+    .then((response) => response.json())
     .then((data) => {
-      // Analiza los datos y verifica el pronóstico de lluvia para las próximas 8 horas
       const pronósticoLluvia = verificarPronósticoLluvia(data);
-      mensajeLluvia.textContent = pronósticoLluvia; // Muestra el mensaje en el elemento con id "mensajeLluvia"
+      mensajeLluvia.textContent = pronósticoLluvia;
     })
     .catch((error) => {
       console.error("Error al obtener datos meteorológicos:", error);
     });
 }
 
-// Función para verificar el pronóstico de lluvia
 function verificarPronósticoLluvia(data) {
   const pronósticoPorHora = data.list;
   const pronósticoLluviaProximas8Horas = pronósticoPorHora
