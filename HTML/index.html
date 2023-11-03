@@ -7,52 +7,37 @@
     <link rel="stylesheet" href="../CSS/style.css" />
   </head>
   <body>
-  <section class="titulo">
-  <h1 class="degradado">¿QUÉ TIEMPO HACE HOY?</h1>
-  </section>
-     <section class="container">
-      <button id= "obtenerUbicacion" class="centered-button">¿Donde?</button>
+    <section class="titulo">
+      <h1 class="degradado">¿QUÉ TIEMPO HACE HOY?</h1>
+    </section>
+    <section class="container">
+      <button id="obtenerUbicacion" class="centered-button">¿Dónde?</button>
     </section>
 
-    
-    
-    <!-- Aquí se mostrará la información -->
-    <header><nav></nav></header>
-    <!--posible nav con información tanto de la empresa como de los creadores de la app?-->
-    
     <article>
-        <div id="resultadoBoton"></div>
-        <!--tarjeta del tiempo con lista para las horas-->
-        <header><h2 id="city"></h2></header>
-        <!--he puesto id para manejar los datos con el JS y darle estilo con el css-->
-        <main>
-          <section>
-            <ul class="hours">
-              <!--le he dado una clase para poder manejar un flex o un gridy organizar los datos-->
-              <li id="primera">1</li>
-              <li id="segunda">2</li>
-              <li id="tercera">3</li>
-              <li id="cuarta">4</li>
-              <li id="quinta">5</li>
-              <li id="sexta">6</li>
-              <li id="septima">7</li>
-              <li id="octaba">8</li>
-            </ul>
-          </section>
-          <!--he dividido en otra sección el párrafo que será una posible variable true false-->
-          <section>
-            <p id="mensajeLluvia"></p>            
-          </section>
-
-          <!--aqui se muestra la respuesta de si llovera o no, agregué id-->
-        </main>
-        <footer></footer>
-        <!--logo?-->
-      </article>
+      <div id="resultadoBoton"></div>
+      <header><h2 id="city"></h2></header>
+      <main>
+        <section>
+          <ul class="hours">
+            <li id="primera">1</li>
+            <li id="segunda">2</li>
+            <li id="tercera">3</li>
+            <li id="cuarta">4</li>
+            <li id="quinta">5</li>
+            <li id="sexta">6</li>
+            <li id="septima">7</li>
+            <li id="octaba">8</li>
+          </ul>
+        </section>
+        <section>
+          <p id="mensajeLluvia"></p>
+        </section>
+      </main>
+      <footer></footer>
+    </article>
     </section>
-    <footer></footer>
-    <!--logo? acerca de...etc-->
+    <footer><!--logo? acerca de...etc--></footer>
     <script type="module" src="/JS/tiempo.js"></script>
   </body>
-  </html>
-  
+</html>
