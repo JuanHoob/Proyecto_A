@@ -1,4 +1,4 @@
-"use strict"; // Habilita el modo estricto de JavaScript para evitar errores comunes
+"use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
   const imagen = document.getElementById("imagen"); // Obtiene el elemento de imagen por su ID
@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(actualizarImagen, 60000); // Actualiza la imagen cada 60 segundos
 
-  // Función para actualizar la información de ubicación
+  // Función para actualizar la información de ubicaciónS
   function actualizarInfoUbicacion() {
     obtenerUbicacionYTemperatura();
     setInterval(obtenerUbicacionYTemperatura, 60000);
   }
 
-  actualizarInfoUbicacion(); // Llama a la función para mostrar la información de ubicación inicial
+  actualizarInfoUbicacion(); // Llama a la función para mostrar la información de ubicación inicialS
 });
 
 const CLAVE_API = "113ab78dfa3e32fdc67b5a19d67c0d9f"; // Clave de la API de OpenWeatherMap
