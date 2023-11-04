@@ -1,7 +1,16 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: 'MiFuentePersonalizada';
     src: url(../fuentes/static/PlaypenSans-SemiBold.ttf);
 }
+
+
 
 @font-face {
     font-family: MiFuentePersonalizada2;
@@ -9,96 +18,76 @@
 }
 
 body {
+    width: 100%;
+    height: 100%;
     background: url(/img/dia.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 body {
+    width: 100%;
+    height: 100%;
     background: url(/img/noche.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.titulo {
+#titulo {
+    margin-top: 40px;
     text-align: center;
-    margin-top: 60px;
+    min-height: 10vh;
 }
 
-h1 {
+h1 {}
+
+h2 {
     font-family: 'MiFuentePersonalizada', sans-serif;
     text-align: center;
     font-size: 60px;
 }
 
-
-.degradado {
-    background: blue;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-    animation: dance 2s linear infinite;
-}
-
-.container {
+.botonsol {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 15vh;
     margin-top: 50px;
-}
-
-.centered-button {
-
-    border-radius: 50%;
-    background-color: rgb(226, 208, 43);
-    border: black;
-    cursor: pointer;
-    transition: background-color 0.3 ease;
-
-}
-
-.centered-button:hover {
-    background-color: rgb(231, 215, 75);
 }
 
 button {
     height: 135px;
     width: 135px;
-    color: white;
+    color: rgb(22, 17, 127);
     font-size: 30px;
     font-family: 'MiFuentePersonalizada2', sans-serif;
     background-color: transparent;
+    border-radius: 50%;
+    background-color: rgb(226, 208, 43);
+    border: black;
+    cursor: pointer;
+    transition: background-color 0.3 ease;
+}
+
+button:hover {
+    background-color: rgb(231, 215, 75);
+}
+
+section.datos {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: ;
 }
 
 #resultadoBoton {
     text-align: center;
-    margin-top: 10%;
     font-family: 'MiFuentePersonalizada', sans-serif;
 }
 
-/* #resultadoBoton.noche {
-text-align: center;
-margin-top: 10%;
-font-family: 'MiFuentePersonalizada2', sans-serif;
-color: white;
-} */
-
-ul li {
-    margin-top: 10%;
-    list-style-type: none;
-    display: flex;
-    font-family: 'MiFuentePersonalizada2', sans-serif;
+#city {
+    text-align: center;
 }
 
-ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-between;
-}
 
 script {
 

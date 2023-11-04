@@ -4,40 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El Tiempo</title>
-    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="/CSS/style.css" />
   </head>
   <body>
-    <section class="titulo">
-      <h1 class="degradado">¿QUÉ TIEMPO HACE HOY?</h1>
-    </section>
-    <section class="container">
-      <button id="obtenerUbicacion" class="centered-button">¿Dónde?</button>
-    </section>
+    <header id="titulo">
+      <h1>El Tiempo</h1>
+      <h2>¿QUÉ TIEMPO HACE HOY?</h2>
+    </header>
+    <main>
+      <section class="botonsol">
+        <button id="obtenerUbicacion">¿Dónde?</button>
+      </section>
 
-    <article>
-      <div id="resultadoBoton"></div>
-      <header><h2 id="city"></h2></header>
-      <main>
-        <section>
-          <ul class="hours">
-            <li id="primera">1</li>
-            <li id="segunda">2</li>
-            <li id="tercera">3</li>
-            <li id="cuarta">4</li>
-            <li id="quinta">5</li>
-            <li id="sexta">6</li>
-            <li id="septima">7</li>
-            <li id="octaba">8</li>
-          </ul>
-        </section>
-        <section>
-          <p id="mensajeLluvia"></p>
-        </section>
-      </main>
-      <footer></footer>
-    </article>
-    </section>
-    <footer><!--logo? acerca de...etc--></footer>
+      <section>
+        <p class="resultadoBoton" id="city"></p>
+        <p class="resultadoBoton" id="temper"></p>
+        <p class="resultadoBoton" id="hume"></p>
+        <p class="resultadoBoton" id="viento"></p>
+        <p class="resultadoBoton" id="fecha"></p>
+        <p class="resultadoBoton" id="mensajeLluvia"></p>
+      </section>
+    </main>
     <script type="module" src="/JS/tiempo.js"></script>
   </body>
 </html>
