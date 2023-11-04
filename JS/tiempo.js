@@ -8,17 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const viento = document.getElementById("viento");
   const fecha = document.getElementById("fecha");
 
-  function actualizarImagen() {
-    const ahora = new Date();
-    const hora = ahora.getHours();
-
-    if (hora >= 7 && hora < 18) {
-      imagen.src = "../img/dia.jpg";
-      document.body.style.color = "black";
-    } else {
-      imagen.src = "../img/noche.jpg";
-      document.body.style.color = "white";
-    }
+  const hora = new Date().getHours();
+  const body = document.querySelector("body");
+  if (hora >= 6 && hora < 18) {
+    body.style.backgroundImage = "url('/img/dia.jpg')";
+  } else {
+    body.style.backgroundImage = "url('/img/noche.jpg')";
   }
 
   actualizarImagen();
@@ -55,7 +50,7 @@ function obtenerUbicacionYTemperatura() {
         .then((respuesta) => respuesta.json())
         .then((datos) => {
           const ciudad = datos.name;
-          const temperatura = (datos.main.temp - 273.15).toFixed(0);
+          const temperatura = (datos.main.temp - 273.15).toFixed(0) + "°C";
           const humedad = datos.main.humidity;
           const velocidadViento = datos.wind.speed;
           const fechaActual = new Date();
