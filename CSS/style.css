@@ -9,13 +9,6 @@
 }
 
 body{
-    background: url(/img/dia.jpg);
-    background-size: cover; 
-    background-repeat: no-repeat; 
-}
-
-body{
-    background: url(/img/noche.jpg);
     background-size: cover; 
     background-repeat: no-repeat; 
 }
@@ -33,7 +26,7 @@ h1 {
 
 
 .degradado {
-    background: blue;
+    background: black;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -74,15 +67,12 @@ h1 {
     text-align: center;
     margin-top: 10%;
 font-family: 'MiFuentePersonalizada', sans-serif;
+font-size: 25px;
 }
-/* #resultadoBoton.noche {
-text-align: center;
-margin-top: 10%;
-font-family: 'MiFuentePersonalizada2', sans-serif;
-color: white;
-} */
+
 
 ul li {
+    align-content: center;
     margin-top: 10%;
     list-style-type: none;
     display: flex;
@@ -97,7 +87,9 @@ align-content: center;
 justify-content: space-between;
 }
 
-script{
- 
+#mensajeLluvia{
+    color: rgb(127, 2, 244);
+text-align: center;
+ font-size: 25px;
  font-family: 'MiFuentePersonalizada', sans-serif;
 }
