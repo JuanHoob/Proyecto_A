@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const hume = document.getElementById("hume");
   const viento = document.getElementById("viento");
   const fecha = document.getElementById("fecha");
-
+  
   const hora = new Date().getHours();
   const body = document.querySelector("body");
   if (hora >= 6 && hora < 18) {
@@ -27,6 +27,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   actualizarInfoUbicacion();
 });
+
+
+function changeTextColorBasedOnTime() {
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+
+
+  if (hours > 6 && hours < 18) {
+    document.querySelectorAll(".color, .datos").forEach(function (element) {
+      element.style.color = "rgb(10, 8, 64)";
+    });
+  } else {
+    document.querySelectorAll(".color, .datos").forEach(function (element) {
+      element.style.color = "white";
+    });
+  }
+}
+
+changeTextColorBasedOnTime();
+setInterval(changeTextColorBasedOnTime, 60000);
+
 
 const CLAVE_API = "113ab78dfa3e32fdc67b5a19d67c0d9f";
 const botonObtenerUbicacion = document.getElementById("obtenerUbicacion");
@@ -59,7 +80,7 @@ function obtenerUbicacionYTemperatura() {
             month: "long",
             day: "numeric",
           });
-          city.textContent = ciudad;
+          city.textContent = `Estoy en ${ciudad}`;
           temper.textContent = temperatura;
           hume.textContent = `Humedad: ${humedad}%`;
           viento.textContent = `Viento: ${(velocidadViento * 3.6).toFixed(
@@ -103,5 +124,5 @@ function verificarPronósticoLluvia(data) {
       return probabilidadLluvia > 0.1;
     });
 
-  return pronósticoLluviaProximas8Horas ? "Sí lloverá" : "No lloverá";
+  return pronósticoLluviaProximas8Horas ? "Sí lloverá en las próximas 8h" : "No lloverá en las próximas 8h";
 }
