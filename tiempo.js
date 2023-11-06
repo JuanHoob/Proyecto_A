@@ -11,12 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const hora = new Date().getHours();
   const body = document.querySelector("body");
 
-  function actualizarImagen() {
-    if (hora >= 6 && hora < 18) {
-      body.style.backgroundImage = "url('/img/dia.jpg')";
-    } else {
-      body.style.backgroundImage = "url('/img/noche.jpg')";
-    }
+  if (hora >= 6 && hora < 18) {
+    body.style.backgroundImage = "url('/img/dia.jpg')";
+  } else {
+    body.style.backgroundImage = "url('/img/noche.jpg')";
   }
 
   actualizarImagen();
@@ -68,29 +66,29 @@ function obtenerUbicacionYTemperatura() {
       const urlOpenWeatherMap = `https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&appid=${CLAVE_API}`;
 
       fetch(urlOpenWeatherMap)
-        .then((respuesta) =>
-          respuesta.json().then((datos) => {
-            const ciudad = datos.name;
-            const temperatura = (datos.main.temp - 273.15).toFixed(0) + "°C";
-            const humedad = datos.main.humidity;
-            const velocidadViento = datos.wind.speed;
-            const fechaActual = new Date();
+        .then((respuesta) => respuesta.json())
+        .then((datos) => {
+          const ciudad = datos.name;
+          const temperatura = (datos.main.temp - 273.15).toFixed(0) + "°C";
+          const humedad = datos.main.humidity;
+          const velocidadViento = datos.wind.speed;
+          const fechaActual = new Date();
 
-            const fechaFormateada = fechaActual.toLocaleDateString("es-ES", {
-              month: "long",
-              day: "numeric",
-            });
-            city.textContent = `Estoy en ${ciudad}`;
-            temper.textContent = temperatura;
-            hume.textContent = `Humedad: ${humedad}%`;
-            viento.textContent = `Viento: ${(velocidadViento * 3.6).toFixed(
-              0
-            )} km/h`;
-            fecha.textContent = fechaFormateada;
+          const fechaFormateada = fechaActual.toLocaleDateString("es-ES", {
+            month: "long",
+            day: "numeric",
+          });
+          city.textContent = `Estoy en ${ciudad}`;
+          temper.textContent = temperatura;
+          hume.textContent = `Humedad: ${humedad}%`;
+          viento.textContent = `Viento: ${(velocidadViento * 3.6).toFixed(
+            0
+          )} km/h`;
+          fecha.textContent = fechaFormateada;
 
-            obtenerPronósticoLluvia(latitud, longitud);
-          })
-        )
+          obtenerPronósticoLluvia(latitud, longitud);
+        })
+
         .catch((error) => {
           infoUbicacion.textContent = `Error al obtener la ubicación o la temperatura: ${error.message}`;
         });
