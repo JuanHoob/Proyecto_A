@@ -7,13 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const hume = document.getElementById("hume");
   const viento = document.getElementById("viento");
   const fecha = document.getElementById("fecha");
-  
+
   const hora = new Date().getHours();
   const body = document.querySelector("body");
-  if (hora >= 6 && hora < 18) {
-    body.style.backgroundImage = "url('/img/dia.jpg')";
-  } else {
-    body.style.backgroundImage = "url('/img/noche.jpg')";
+
+  function actualizarImagen() {
+    if (hora >= 6 && hora < 18) {
+      body.style.backgroundImage = "url('/img/dia.jpg')";
+    } else {
+      body.style.backgroundImage = "url('/img/noche.jpg')";
+    }
   }
 
   actualizarImagen();
@@ -28,11 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
   actualizarInfoUbicacion();
 });
 
-
 function changeTextColorBasedOnTime() {
   const currentTime = new Date();
   const hours = currentTime.getHours();
-
 
   if (hours > 6 && hours < 18) {
     document.querySelectorAll(".color, .datos").forEach(function (element) {
@@ -47,7 +48,6 @@ function changeTextColorBasedOnTime() {
 
 changeTextColorBasedOnTime();
 setInterval(changeTextColorBasedOnTime, 60000);
-
 
 const CLAVE_API = "113ab78dfa3e32fdc67b5a19d67c0d9f";
 const botonObtenerUbicacion = document.getElementById("obtenerUbicacion");
@@ -68,28 +68,29 @@ function obtenerUbicacionYTemperatura() {
       const urlOpenWeatherMap = `https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&appid=${CLAVE_API}`;
 
       fetch(urlOpenWeatherMap)
-        .then((respuesta) => respuesta.json())
-        .then((datos) => {
-          const ciudad = datos.name;
-          const temperatura = (datos.main.temp - 273.15).toFixed(0) + "°C";
-          const humedad = datos.main.humidity;
-          const velocidadViento = datos.wind.speed;
-          const fechaActual = new Date();
+        .then((respuesta) =>
+          respuesta.json().then((datos) => {
+            const ciudad = datos.name;
+            const temperatura = (datos.main.temp - 273.15).toFixed(0) + "°C";
+            const humedad = datos.main.humidity;
+            const velocidadViento = datos.wind.speed;
+            const fechaActual = new Date();
 
-          const fechaFormateada = fechaActual.toLocaleDateString("es-ES", {
-            month: "long",
-            day: "numeric",
-          });
-          city.textContent = `Estoy en ${ciudad}`;
-          temper.textContent = temperatura;
-          hume.textContent = `Humedad: ${humedad}%`;
-          viento.textContent = `Viento: ${(velocidadViento * 3.6).toFixed(
-            0
-          )} km/h`;
-          fecha.textContent = fechaFormateada;
+            const fechaFormateada = fechaActual.toLocaleDateString("es-ES", {
+              month: "long",
+              day: "numeric",
+            });
+            city.textContent = `Estoy en ${ciudad}`;
+            temper.textContent = temperatura;
+            hume.textContent = `Humedad: ${humedad}%`;
+            viento.textContent = `Viento: ${(velocidadViento * 3.6).toFixed(
+              0
+            )} km/h`;
+            fecha.textContent = fechaFormateada;
 
-          obtenerPronósticoLluvia(latitud, longitud);
-        })
+            obtenerPronósticoLluvia(latitud, longitud);
+          })
+        )
         .catch((error) => {
           infoUbicacion.textContent = `Error al obtener la ubicación o la temperatura: ${error.message}`;
         });
@@ -124,5 +125,7 @@ function verificarPronósticoLluvia(data) {
       return probabilidadLluvia > 0.1;
     });
 
-  return pronósticoLluviaProximas8Horas ? "Sí lloverá en las próximas 8h" : "No lloverá en las próximas 8h";
+  return pronósticoLluviaProximas8Horas
+    ? "Sí lloverá en las próximas 8h"
+    : "No lloverá en las próximas 8h";
 }
