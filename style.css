@@ -228,8 +228,8 @@ script {
     }
 
     button {
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
         color: rgb(22, 17, 127);
         font-size: 40px;
         font-family: 'MiFuentePersonalizada2', sans-serif;
