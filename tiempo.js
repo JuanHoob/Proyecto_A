@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   actualizarImagen();
-
   setInterval(actualizarImagen, 60000);
 
   function actualizarInfoUbicacion() {
